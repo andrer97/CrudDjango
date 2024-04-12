@@ -11,7 +11,7 @@
 
     <ul>
         {% for usuario in usuarios %}
-            <li>{{ usuario.id }} - {{ usuario.nome }} - {{ usuario.dataNascimento }} - {{ usuario.email }} - {{ usuario.paisDestino }} <a href="{% url 'atualizar' pessoa.id %}">atualizar</a></li>
+            <li>{{ usuario.id }} - {{ usuario.nome }} - {{ usuario.dataNascimento }} - {{ usuario.email }} - {{ usuario.paisDestino }} <a href="{% url 'editar' usuario.id %}">editar</a> <a href="{% url 'deletar' usuario.id %}">deletar</a></li>
         {% endfor %}    
     </ul>
 

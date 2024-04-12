@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    {{ usuario.id }} - {{ usuario.nome }} - {{ usuario.dataNascimento }} - {{ usuario.email }} - {{ usuario.paisDestino }}
+
+    <form action="{% url 'atualizar' usuario.id %}" method="POST">
+        {% csrf_token %}
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="{{ usuario.nome }}" required>
+        <br>
+        <label for="dataNascimento">Data de Nascimento:</label>
+        <input type="date" id="dataNascimento" name="dataNascimento" value="{{ usuario.dataNascimento|date:'Y-m-d' }}" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ usuario.email }}" required>
+        <br>
+        <label for="paisDestino">País de Destino:</label>
+        <input type="text" id="paisDestino" name="paisDestino" value="{{ usuario.paisDestino }}" required>
+        <br>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>
