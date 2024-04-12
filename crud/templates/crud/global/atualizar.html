@@ -20,7 +20,7 @@
                 <td>{{ usuario.dataNascimento }}</td>
                 <td>{{ usuario.email }}</td>
                 <td>{{ usuario.paisDestino }}</td>
-                <td><a href="{% url 'delete' usuario.id %}">Deletar</a></td>
+                <td><a href="{% url 'update' usuario.id %}">Editar</a></td>
             </tr>
             {% endif %}
             {% endfor %} 
