@@ -1,0 +1,29 @@
+{% extends "crud/global/base.html" %}
+
+{% block content %}
+<div class="container mt-3">
+    <h2>Últimos usuários cadastrados</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>Email</th>
+                <th>Pais de Destino</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            {% if forloop.counter <= 10 %}
+            <tr>
+                <td>{{ usuario.nome }}</td>
+                <td>{{ usuario.dataNascimento }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.paisDestino }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %} 
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

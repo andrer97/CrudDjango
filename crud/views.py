@@ -5,7 +5,7 @@ from .models import Usuario
 
 def home(request):
     usuarios = Usuario.objects.all()
-    return render(request, "crud/index.html", {"usuarios": usuarios})
+    return render(request, "crud/global/index.html", {"usuarios": usuarios})
 
 def criar(request):
     nome = request.POST.get("nome")
@@ -14,11 +14,11 @@ def criar(request):
     paisDestino = request.POST.get("paisDestino")
     Usuario.objects.create(nome=nome, dataNascimento=dataNascimento, email=email, paisDestino=paisDestino)
     usuarios = Usuario.objects.all()
-    return render(request, "crud/index.html", {"usuarios": usuarios})
+    return render(request, "crud/global/criar.html", {"usuarios": usuarios})
 
 def editar(request, id):
     usuario = Usuario.objects.get(id=id)
-    return render(request, "crud/editar.html", {"usuario": usuario})
+    return render(request, "crud/global/editar.html", {"usuario": usuario})
 
 def atualizar(request, id):
     nome = request.POST.get("nome")
