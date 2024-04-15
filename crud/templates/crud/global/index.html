@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for usuario in usuarios %}
+            {% for usuario in usuarios|slice:"::-1" %}
             {% if forloop.counter <= 10 %}
             <tr>
                 <td>{{ usuario.nome }}</td>

@@ -3,6 +3,16 @@
 {% block content %}
 <div class="container mt-3">
     <h2>Usuários cadastrados</h2>
+
+    <form action="{% url 'atualizar' %}" method="POST">
+        {% csrf_token %}
+        <label for="nome">Pesquisar um usuário:</label>
+        <div class="form-floating mb-3 mt-3">
+            <input type="text" class="form-control" id="nome" name="nome" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -14,15 +24,13 @@
         </thead>
         <tbody>
             {% for usuario in usuarios %}
-            {% if forloop.counter <= 10 %}
             <tr>
                 <td>{{ usuario.nome }}</td>
                 <td>{{ usuario.dataNascimento }}</td>
                 <td>{{ usuario.email }}</td>
                 <td>{{ usuario.paisDestino }}</td>
-                <td><a href="{% url 'update' usuario.id %}">Editar</a></td>
+                <td><a href="{% url 'editar' usuario.id %}" class="btn btn-primary">Editar</a></td>
             </tr>
-            {% endif %}
             {% endfor %} 
         </tbody>
     </table>

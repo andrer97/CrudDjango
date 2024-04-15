@@ -4,7 +4,7 @@
 <div class="container mt-3">
     <h2>Usuários cadastrados</h2>
 
-    <form action="{% url 'deletar' %}" method="POST">
+    <form action="{% url 'pesquisar' %}" method="POST">
         {% csrf_token %}
         <label for="nome">Pesquisar um usuário:</label>
         <div class="form-floating mb-3 mt-3">
@@ -29,7 +29,6 @@
                 <td>{{ usuario.dataNascimento }}</td>
                 <td>{{ usuario.email }}</td>
                 <td>{{ usuario.paisDestino }}</td>
-                <td><a href="{% url 'deletar' usuario.id %}" class="btn btn-danger">Deletar</a></td>
             </tr>
             {% endfor %} 
         </tbody>
