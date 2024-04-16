@@ -1,0 +1,8 @@
+<form action="{% url search %}" method="POST">
+    {% csrf_token %}
+    <label for="nome">Pesquisar um usuário:</label>
+    <div class="form-floating mb-3 mt-3">
+        <input type="text" class="form-control" id="nome" name="nome" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
